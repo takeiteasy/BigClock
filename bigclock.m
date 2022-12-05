@@ -89,7 +89,7 @@ static double opacity_off = MIN_OPACITY_OFF;
     if (self = [super init]) {
         NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self
-               selector:@selector(onExit:)
+               selector:@selector(terminate:)
                    name:NSApplicationWillTerminateNotification
                  object:nil];
         
@@ -158,10 +158,12 @@ static double opacity_off = MIN_OPACITY_OFF;
 }
 
 - (void)update {
-    NSDateFormatter* fmt = [[NSDateFormatter alloc] init];
-    [fmt setDateFormat:@"hh:mm:ss"];
-    [label setStringValue:[fmt stringFromDate:[NSDate date]]];
-    [view setNeedsDisplay:YES];
+    @autoreleasepool {
+        NSDateFormatter* fmt = [[NSDateFormatter alloc] init];
+        [fmt setDateFormat:@"hh:mm:ss"];
+        [label setStringValue:[fmt stringFromDate:[NSDate date]]];
+        [view setNeedsDisplay:YES];
+    }
 }
 
 - (void)update_fade:(NSTimeInterval)v {
