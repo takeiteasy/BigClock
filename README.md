@@ -6,4 +6,5 @@ Just a big clock
 
 ## License
 
-MIT
+[MIT](LICENSE)
+
