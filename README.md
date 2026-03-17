@@ -2,7 +2,7 @@
 
 Just a big clock
 
-[!screenshot.png](screenshot.png)
+![screenshot](screenshot.png)
 
 ## License
 
